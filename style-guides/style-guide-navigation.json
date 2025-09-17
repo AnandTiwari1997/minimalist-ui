@@ -1,0 +1,68 @@
+{
+    "components": {
+
+        "navbar": {
+            "accessibility": {
+                "aria-label": "main navigation",
+                "role": "navigation"
+            },
+            "elements": {
+                "brand": { "font": { "size": "{font.size.lg}", "weight": "{font.weight.bold}" } },
+                "cta-button": { "inherits": "button.primary.md" },
+                "link": {
+                    "active": {
+                        "borderBottom": "2px solid {colors.states.primary.default}",
+                        "text": "{colors.states.primary.default}"
+                    },
+                    "default": { "padding": [0, 12], "text": "{colors.modes.light.text.secondary}" },
+                    "hover": { "text": "{colors.modes.light.text.primary}" }
+                }
+            },
+            "sizes": {
+                "lg": { "height": 64, "padding": [0, 32] },
+                "md": { "height": 56, "padding": [0, 24] },
+                "sm": { "height": 48, "padding": [0, 16] }
+            },
+            "states": {
+                "default": { "bg": "{colors.modes.light.background.surface}", "shadow": "{shadow.level1}" },
+                "scrolled": { "shadow": "{shadow.level4}" },
+                "sticky": { "shadow": "{shadow.level3}" }
+            }
+        },
+
+        "sidebar": {
+            "accessibility": {
+                "aria-label": "sidebar navigation",
+                "role": "navigation"
+            },
+            "elements": {
+                "link": {
+                    "active": { "bg": "{colors.states.primary.subtle}", "text": "{colors.states.primary.default}" },
+                    "default": {
+                        "padding": [8, 16],
+                        "radius": "{radius.sm}",
+                        "text": "{colors.modes.light.text.secondary}"
+                    },
+                    "hover": {
+                        "bg": "{colors.modes.light.background.subtle}",
+                        "text": "{colors.modes.light.text.primary}"
+                    }
+                },
+                "section-title": {
+                    "font": { "size": "{font.size.sm}", "weight": "{font.weight.semibold}" },
+                    "margin": [16, 0, 8, 0]
+                }
+            },
+            "sizes": {
+                "lg": { "padding": 24, "width": 280 },
+                "md": { "padding": 20, "width": 240 },
+                "sm": { "padding": 16, "width": 200 }
+            },
+            "states": {
+                "collapsed": { "shadow": "{shadow.level1}", "width": 72 },
+                "default": { "bg": "{colors.modes.light.background.surface}", "shadow": "{shadow.level2}" },
+                "expanded": { "shadow": "{shadow.level3}", "width": "auto" }
+            }
+        }
+    }
+}

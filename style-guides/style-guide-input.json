@@ -1,0 +1,205 @@
+{
+    "structure": {
+        "parts": ["label", "field", "leadingIcon", "trailingIcon", "helperText"]
+    },
+    "a11y": { "minTouchTarget": 44 },
+    "accessibility": {
+        "ariaAttributes": {
+            "aria-labelledby": "id-of-label",
+            "aria-describedby": "id-of-helper-or-error",
+            "aria-invalid": "true when in error state",
+            "aria-required": "asterisk indicator",
+            "aria-disabled": "non-interactive input"
+        },
+        "keyboard": {
+            "focusRing": "visible on Tab",
+            "escapeKey": "clears input (optional)"
+        },
+        "contrast": {
+            "minimumRatio": "4.5:1 for text vs background (WCAG AA)",
+            "placeholderRatio": "3:1 recommended"
+        }
+    },
+    "sizes": {
+        "lg": {
+            "font": {
+                "size": "{font.size.lg}",
+                "weight": "{font.weight.regular}",
+                "lineHeight": "{font.lineHeight.relaxed}"
+            },
+            "height": "{height.lg}",
+            "padding": [0, "{spacing.4}"],
+            "radius": "{radius.lg}",
+            "iconSize": "24px",
+            "margin": "{spacing.1}",
+            "label": {
+                "fontSize": "{font.size.md}",
+                "fontWeight": "{font.weight.medium}",
+                "spacing": "{spacing.2}",
+                "margin": [0, 0, "{spacing.1}", 0]
+            },
+            "helper": {
+                "fontSize": "{font.size.sm}",
+                "spacing": "{spacing.2}",
+                "margin": ["{spacing.1}", 0, 0, 0]
+            }
+        },
+        "md": {
+            "font": {
+                "size": "{font.size.md}",
+                "weight": "{font.weight.regular}",
+                "lineHeight": "{font.lineHeight.normal}"
+            },
+            "height": "{height.md}",
+            "padding": [0, "{spacing.3}"],
+            "radius": "{radius.md}",
+            "iconSize": "20px",
+            "margin": "{spacing.1}",
+            "label": {
+                "fontSize": "{font.size.sm}",
+                "fontWeight": "{font.weight.medium}",
+                "spacing": "{spacing.1}",
+                "margin": [0, 0, "{spacing.1}", 0]
+            },
+            "helper": {
+                "fontSize": "{font.size.xs}",
+                "spacing": "{spacing.1}",
+                "margin": ["{spacing.1}", 0, 0, 0]
+            }
+        },
+        "sm": {
+            "font": {
+                "size": "{font.size.sm}",
+                "weight": "{font.weight.regular}",
+                "lineHeight": "{font.lineHeight.normal}"
+            },
+            "height": "{height.sm}",
+            "padding": [0, "{spacing.2}"],
+            "radius": "{radius.sm}",
+            "iconSize": "16px",
+            "margin": "{spacing.1}",
+            "label": {
+                "fontSize": "{font.size.xs}",
+                "fontWeight": "{font.weight.medium}",
+                "spacing": "{spacing.1}",
+                "margin": [0, 0, "{spacing.1}", 0]
+            },
+            "helper": {
+                "fontSize": "{font.size.xs}",
+                "spacing": "{spacing.1}",
+                "margin": ["{spacing.1}", 0, 0, 0]
+            }
+        }
+    },
+    "variants": {
+        "filled": {
+            "state": {
+                "default": {
+                    "backgroundColor": "{color.modes.light.background.subtle}",
+                    "border": "1px solid transparent",
+                    "textColor": "{color.modes.light.text.primary}",
+                    "placeholder": {
+                        "font": { "style": "italic" },
+                        "text": "{colors.modes.dark.text.secondary}"
+                    },
+                    "label": { "color": "{color.modes.light.text.secondary}" },
+                    "helper": { "color": "{color.modes.light.text.secondary}" },
+                    "shadow": "{shadow.level0}"
+                },
+                "hover": { "backgroundColor": "{color.modes.light.background.default}" },
+                "focus": {
+                    "backgroundColor": "{color.modes.light.background.surface}",
+                    "border": "1px solid {color.modes.light.border.focus}",
+                    "ring": "0 0 0 3px rgba(37, 99, 235, 0.3)",
+                    "label": { "color": "{color.modes.light.text.primary}" }
+                },
+                "disabled": {
+                    "backgroundColor": "{color.modes.light.background.subtle}",
+                    "textColor": "{color.modes.light.text.disabled}",
+                    "label": { "color": "{color.modes.light.text.disabled}" },
+                    "helper": { "color": "{color.modes.light.text.disabled}" },
+                    "cursor": "not-allowed"
+                },
+                "error": {
+                    "backgroundColor": "{color.state.error.subtle}",
+                    "border": "1px solid {color.state.error.default}",
+                    "textColor": "{color.state.error.strong}",
+                    "label": { "color": "{color.state.error.default}" },
+                    "helper": { "color": "{color.state.error.default}" }
+                }
+            }
+        },
+        "outline": {
+            "state": {
+                "default": {
+                    "backgroundColor": "{color.modes.light.background.surface}",
+                    "border": "1px solid {color.modes.light.border.default}",
+                    "textColor": "{color.modes.light.text.primary}",
+                    "placeholder": {
+                        "font": { "style": "italic" },
+                        "text": "{colors.modes.dark.text.secondary}"
+                    },
+                    "label": { "color": "{color.modes.light.text.secondary}" },
+                    "helper": { "color": "{color.modes.light.text.secondary}" },
+                    "shadow": "{shadow.level0}"
+                },
+                "hover": { "border": "1px solid {color.modes.light.border.strong}" },
+                "focus": {
+                    "border": "1px solid {color.modes.light.border.focus}",
+                    "ring": "0 0 0 3px rgba(37, 99, 235, 0.3)",
+                    "label": { "color": "{color.modes.light.text.primary}" }
+                },
+                "disabled": {
+                    "backgroundColor": "{color.modes.light.background.subtle}",
+                    "textColor": "{color.modes.light.text.disabled}",
+                    "label": { "color": "{color.modes.light.text.disabled}" },
+                    "helper": { "color": "{color.modes.light.text.disabled}" },
+                    "border": "1px solid {color.modes.light.border.light}",
+                    "cursor": "not-allowed"
+                },
+                "error": {
+                    "border": "1px solid {color.state.error.default}",
+                    "textColor": "{color.state.error.strong}",
+                    "label": { "color": "{color.state.error.default}" },
+                    "helper": { "color": "{color.state.error.default}" }
+                }
+            }
+        },
+        "ghost": {
+            "state": {
+                "default": {
+                    "backgroundColor": "transparent",
+                    "border": "1px solid transparent",
+                    "textColor": "{color.modes.light.text.primary}",
+                    "placeholder": {
+                        "font": { "style": "italic" },
+                        "text": "{colors.modes.dark.text.secondary}"
+                    },
+                    "label": { "color": "{color.modes.light.text.secondary}" },
+                    "helper": { "color": "{color.modes.light.text.secondary}" },
+                    "shadow": "{shadow.level0}"
+                },
+                "hover": { "backgroundColor": "{color.modes.light.background.subtle}" },
+                "focus": {
+                    "border": "1px solid {color.modes.light.border.focus}",
+                    "ring": "0 0 0 3px rgba(37, 99, 235, 0.3)",
+                    "label": { "color": "{color.modes.light.text.primary}" }
+                },
+                "disabled": {
+                    "backgroundColor": "transparent",
+                    "textColor": "{color.modes.light.text.disabled}",
+                    "label": { "color": "{color.modes.light.text.disabled}" },
+                    "helper": { "color": "{color.modes.light.text.disabled}" },
+                    "cursor": "not-allowed"
+                },
+                "error": {
+                    "backgroundColor": "{color.state.error.subtle}",
+                    "border": "1px solid {color.state.error.default}",
+                    "textColor": "{color.state.error.strong}",
+                    "label": { "color": "{color.state.error.default}" },
+                    "helper": { "color": "{color.state.error.default}" }
+                }
+            }
+        }
+    }
+}

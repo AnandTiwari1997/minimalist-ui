@@ -1,0 +1,11 @@
+{
+    "family": {
+        "mono": "'Fira Code', monospace",
+        "primary": "'Inter', sans-serif",
+        "secondary": "'Roboto', sans-serif"
+    },
+    "letterSpacing": { "normal": 0, "tight": -0.5, "wide": 0.5 },
+    "lineHeight": { "normal": 1.5, "relaxed": 1.75, "tight": 1.2 },
+    "size": { "2xl": 32, "lg": 20, "md": 16, "sm": 14, "xl": 24, "xs": 12 },
+    "weight": { "bold": 700, "light": 300, "medium": 500, "regular": 400, "semibold": 600 }
+}

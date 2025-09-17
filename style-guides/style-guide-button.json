@@ -1,0 +1,116 @@
+{
+    "structure": { "parts": ["content", "leadingIcon", "trailingIcon"] },
+    "a11y": { "minTouchTarget": 44 },
+    "accessibility": {
+        "aria": {
+            "aria-disabled": "indicates non-interactive",
+            "aria-pressed": "maintain active state"
+        },
+        "keyboard": {
+            "focusVisible": "apply strong outline with {shadow.focus}"
+        }
+    },
+    "iconPlacement": { "leading": "{spacing.2}", "trailing": "{spacing.2}" },
+    "modes": {
+        "dark": {
+            "primary": {
+                "base": { "text": "{color.modes.dark.text.primary}" },
+                "disabled": { "text": "{color.modes.dark.text.disabled}" }
+            }
+        }
+    },
+    "toggleBehavior": {
+        "pressed": {
+            "base": {
+                "bg": "{color.state.primary.active}",
+                "text": "{color.modes.light.text.inverse}"
+            }
+        }
+    },
+    "sizes": {
+        "lg": {
+            "font": { "size": "{font.size.lg}", "weight": "{font.weight.semibold}" },
+            "gap": "{spacing.3}",
+            "height": "{height.lg}",
+            "margin": [0, "{spacing.2}"],
+            "padding": [0, "{spacing.5}"],
+            "radius": "{radius.lg}"
+        },
+        "md": {
+            "font": { "size": "{font.size.md}", "weight": "{font.weight.medium}" },
+            "gap": "{spacing.2}",
+            "height": "{height.md}",
+            "margin": [0, "{spacing.2}"],
+            "padding": [0, "{spacing.4}"],
+            "radius": "{radius.md}"
+        },
+        "sm": {
+            "font": { "size": "{font.size.sm}", "weight": "{font.weight.medium}" },
+            "gap": "{spacing.2}",
+            "height": "{height.sm}",
+            "margin": [0, "{spacing.2}"],
+            "padding": [0, "{spacing.3}"],
+            "radius": "{radius.sm}"
+        }
+    },
+    "variants": {
+        "ghost": {
+            "base": {
+                "bg": "transparent",
+                "border": "none",
+                "shadow": "{shadow.level0}",
+                "text": "{color.state.primary.default}"
+            },
+            "hover": { "bg": "{color.state.primary.subtle}" },
+            "active": { "bg": "{color.state.primary.subtle}" },
+            "disabled": { "text": "{color.modes.light.text.disabled}" },
+            "focusVisible": { "shadow": "{shadow.focus}" }
+        },
+        "outline": {
+            "base": {
+                "bg": "transparent",
+                "border": "1px solid {color.state.primary.default}",
+                "shadow": "{shadow.level0}",
+                "text": "{color.state.primary.default}"
+            },
+            "hover": { "bg": "{color.state.primary.subtle}" },
+            "active": {
+                "bg": "{color.state.primary.subtle}",
+                "border": "1px solid {color.state.primary.active}"
+            },
+            "disabled": {
+                "border": "1px solid {color.modes.light.border.light}",
+                "text": "{color.modes.light.text.disabled}"
+            },
+            "focusVisible": { "shadow": "{shadow.focus}" }
+        },
+        "primary": {
+            "base": {
+                "bg": "{color.state.primary.default}",
+                "border": "none",
+                "shadow": "{shadow.level1}",
+                "text": "{color.modes.light.text.inverse}"
+            },
+            "hover": { "bg": "{color.state.primary.hover}", "shadow": "{shadow.level1}" },
+            "active": { "bg": "{color.state.primary.active}", "shadow": "{shadow.level2}" },
+            "disabled": {
+                "bg": "{color.modes.light.border.light}",
+                "shadow": "{shadow.level0}",
+                "text": "{color.modes.light.text.disabled}"
+            },
+            "focusVisible": { "outline": "none", "shadow": "{shadow.focus}" }
+        },
+        "flat": {
+            "base": {
+                "bg": "transparent",
+                "border": "none",
+                "shadow": "{shadow.level0}",
+                "text": "{color.state.primary.default}"
+            },
+            "hover": { "bg": "{color.state.primary.subtle}" },
+            "active": { "bg": "{color.state.primary.subtle-strong}" },
+            "disabled": { "text": "{color.modes.light.text.disabled}" },
+            "focusVisible": { "shadow": "{shadow.focus}" }
+        }
+    }
+}

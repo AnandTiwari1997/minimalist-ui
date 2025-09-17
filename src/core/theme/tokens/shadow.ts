@@ -1,0 +1,16 @@
+export const shadow = {
+    dark: {
+        focus: '0 0 0 3px rgba(59,130,246,0.6)',
+        level0: 'none',
+        level1: '0px 1px 2px rgba(0,0,0,0.8)',
+        level2: '0px 2px 4px rgba(0,0,0,0.7)',
+        level3: '0px 8px 12px rgba(0,0,0,0.75)'
+    },
+    light: {
+        focus: '0 0 0 3px rgba(59,130,246,0.5)',
+        level0: 'none',
+        level1: '0px 1px 3px rgba(0,0,0,0.1), 0px 1px 2px rgba(0,0,0,0.06)',
+        level2: '0px 4px 6px rgba(0,0,0,0.1), 0px 2px 4px rgba(0,0,0,0.06)',
+        level3: '0px 10px 15px rgba(0,0,0,0.2), 0px 4px 6px rgba(0,0,0,0.1)'
+    }
+};

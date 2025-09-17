@@ -1,0 +1,101 @@
+{
+    "components": {
+
+        "link": {
+            "active": { "text": "{colors.states.primary.active}" },
+            "base": {
+                "decoration": "underline",
+                "decorationThickness": 1,
+                "fontWeight": "{font.weight.medium}",
+                "text": "{colors.states.primary.default}",
+                "underlineOffset": 2
+            },
+            "disabled": { "decoration": "none", "text": "{colors.modes.light.text.disabled}" },
+            "focus-visible": { "shadow": "{shadow.focus}" },
+            "hover": { "text": "{colors.states.primary.hover}" },
+            "modes": { "dark": { "visited": { "text": "{colors.base.indigo.500}" } } },
+            "visited": { "text": "{colors.base.indigo.700}" }
+        },
+
+        "progress": {
+            "circular": {
+                "bar": { "bg": "{colors.states.primary.default}" },
+                "sizes": { "lg": 40, "md": 32, "sm": 24 },
+                "strokeWidth": 4,
+                "track": { "bg": "{colors.modes.light.background.subtle}" }
+            },
+            "linear": {
+                "bar": {
+                    "bg": "{colors.states.primary.default}",
+                    "radius": "{radius.pill}",
+                    "shadow": "{shadow.level1}"
+                },
+                "indeterminate": { "bg": "{colors.states.primary.hover}" },
+                "track": { "bg": "{colors.modes.light.background.subtle}", "height": 6, "radius": "{radius.pill}" }
+            }
+        },
+
+        "spinner": {
+            "colors": { "default": "{colors.states.primary.default}", "inverse": "{colors.modes.light.text.inverse}" },
+            "sizes": { "lg": 28, "md": 20, "sm": 16 },
+            "strokeWidth": 2
+        },
+
+        "switch": {
+            "a11y": { "minTouchTarget": 44 },
+            "disabled": {
+                "thumb": { "bg": "{colors.modes.light.background.subtle}" },
+                "track": { "bg": "{colors.modes.light.border.light}" }
+            },
+            "focus-visible": { "shadow": "{shadow.focus}" },
+            "hover": { "track": { "bg": "{colors.states.primary.hover}" } },
+            "modes": {
+                "dark": {
+                    "off": { "track": { "bg": "{colors.modes.dark.border.default}" } },
+                    "on": {
+                        "thumb": { "bg": "{colors.modes.dark.text.primary}" },
+                        "track": { "bg": "{colors.states.primary.default}" }
+                    }
+                }
+            },
+            "off": {
+                "thumb": { "bg": "{colors.modes.light.background.surface}", "shadow": "{shadow.level1}" },
+                "track": { "bg": "{colors.modes.light.border.default}" }
+            },
+            "on": {
+                "thumb": { "bg": "{colors.modes.light.text.inverse}" },
+                "track": { "bg": "{colors.states.primary.default}" }
+            },
+            "tokens": { "radius": "{radius.pill}", "thumb": 18, "trackHeight": 24, "trackWidth": 44 }
+        },
+
+        "textarea": {
+            "base": {
+                "bg": "{colors.modes.light.background.surface}",
+                "border": "1px solid {colors.modes.light.border.default}",
+                "minHeight": 96,
+                "padding": "{spacing.3}",
+                "radius": "{radius.sm}",
+                "shadow": "{shadow.level0}",
+                "text": "{colors.modes.light.text.primary}"
+            },
+            "disabled": {
+                "bg": "{colors.modes.light.background.subtle}",
+                "text": "{colors.modes.light.text.disabled}"
+            },
+            "error": { "border": "1px solid {colors.states.error.default}" },
+            "focus": { "border": "1px solid {colors.modes.light.border.focus}", "shadow": "{shadow.focus}" },
+            "hover": { "border": "1px solid {colors.modes.light.border.strong}" },
+            "modes": {
+                "dark": {
+                    "base": {
+                        "bg": "{colors.modes.dark.background.surface}",
+                        "border": "1px solid {colors.modes.dark.border.default}",
+                        "text": "{colors.modes.dark.text.primary}"
+                    }
+                }
+            },
+            "resize": "vertical"
+        }
+    }
+}

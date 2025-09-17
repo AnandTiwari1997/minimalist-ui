@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:where(.minimalist-ui, .minimalist-ui *, .minimalist-ui *::before, .minimalist-ui *::after) {
+    box-sizing: border-box;
+}
+
+@keyframes ripple {
+    from {
+        transform: scale(0);
+        opacity: 0.75;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-solid {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-gradient {
+    from {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-outline {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-glow {
+    from {
+        transform: scale(0);
+        opacity: 0.7;
+        box-shadow: 0 0 5px 2px currentColor;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+        box-shadow: 0 0 20px 6px transparent;
+    }
+}
+
+@keyframes ripple-pulse {
+    0% {
+        transform: scale(0);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(2.5);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-wave {
+    from {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(3.5);
+        opacity: 0;
+    }
+}

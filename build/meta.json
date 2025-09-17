@@ -1,0 +1,31 @@
+{
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
+  },
+  "stories": {
+    "button--primary": {
+      "name": "Primary",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 3,
+      "locEnd": 3,
+      "filePath": "src/core/components/button/Button.stories.tsx",
+      "namedExport": "Primary",
+      "meta": {}
+    },
+    "button--with-click": {
+      "name": "With click",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 4,
+      "locEnd": 4,
+      "filePath": "src/core/components/button/Button.stories.tsx",
+      "namedExport": "WithClick",
+      "meta": {}
+    }
+  }
+}

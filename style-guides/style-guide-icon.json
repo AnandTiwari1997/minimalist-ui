@@ -1,0 +1,13 @@
+{
+    "sizes": { "lg": 24, "md": 20, "sm": 16, "xl": 32 },
+    "states": {
+        "default": { "color": "{colors.modes.light.text.primary}" },
+        "disabled": { "color": "{colors.modes.light.text.disabled}" },
+        "interactive": {
+            "active": { "color": "{colors.states.primary.active}" },
+            "focus": { "outline": "{shadow.focus}" },
+            "hover": { "color": "{colors.states.primary.hover}" }
+        },
+        "muted": { "color": "{colors.modes.light.text.secondary}" }
+    }
+}

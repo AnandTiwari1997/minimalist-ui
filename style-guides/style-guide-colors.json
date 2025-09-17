@@ -1,0 +1,110 @@
+{
+    "base": {
+        "amber": { "100": "#FEF3C7", "50": "#FFFBEB", "500": "#F59E0B", "600": "#D97706", "700": "#B45309" },
+        "black": "#000000",
+        "blue": { "100": "#DBEAFE", "50": "#EFF6FF", "500": "#3B82F6", "600": "#2563EB", "700": "#1D4ED8" },
+        "gray": {
+            "100": "#F3F4F6",
+            "200": "#E5E7EB",
+            "50": "#F9FAFB",
+            "500": "#6B7280",
+            "700": "#374151",
+            "800": "#1F2937",
+            "900": "#111827"
+        },
+        "green": { "100": "#D1FAE5", "50": "#ECFDF5", "500": "#10B981", "600": "#059669", "700": "#047857" },
+        "indigo": { "100": "#E0E7FF", "50": "#EEF2FF", "500": "#6366F1", "600": "#4F46E5", "700": "#4338CA" },
+        "red": { "100": "#FEE2E2", "50": "#FEF2F2", "500": "#EF4444", "600": "#DC2626", "700": "#B91C1C" },
+        "white": "#FFFFFF"
+    },
+    "modes": {
+        "dark": {
+            "background": {
+                "default": "{colors.base.gray.900}",
+                "overlay": "rgba(0,0,0,0.6)",
+                "subtle": "{colors.base.gray.700}",
+                "surface": "{colors.base.gray.800}"
+            },
+            "border": {
+                "default": "{colors.base.gray.600}",
+                "focus": "{colors.base.blue.400}",
+                "light": "{colors.base.gray.700}",
+                "strong": "{colors.base.gray.400}"
+            },
+            "text": {
+                "disabled": "rgba(249,250,251,0.4)",
+                "inverse": "{colors.base.black}",
+                "primary": "{colors.base.gray.50}",
+                "secondary": "{colors.base.gray.500}",
+                "deprecated": {
+                    "disabled": "rgba(255,255,255,0.4)",
+                    "inverse": "{colors.base.gray.900}",
+                    "primary": "{colors.base.gray.50}",
+                    "secondary": "{colors.base.gray.200}"
+                }
+            }
+        },
+        "light": {
+            "background": {
+                "default": "{colors.base.gray.50}",
+                "overlay": "rgba(0,0,0,0.4)",
+                "subtle": "{colors.base.gray.100}",
+                "surface": "{colors.base.white}"
+            },
+            "border": {
+                "default": "{colors.base.gray.200}",
+                "focus": "{colors.base.blue.500}",
+                "light": "{colors.base.gray.200}",
+                "strong": "{colors.base.gray.500}"
+            },
+            "text": {
+                "disabled": "rgba(17,24,39,0.38)",
+                "inverse": "{colors.base.white}",
+                "primary": "{colors.base.gray.900}",
+                "secondary": "{colors.base.gray.500}"
+            }
+        }
+    },
+    "states": {
+        "error": {
+            "strong": "{colors.base.red.800}",
+            "active": "{colors.base.red.700}",
+            "default": "{colors.base.red.500}",
+            "hover": "{colors.base.red.600}",
+            "subtle": "{colors.base.red.50}",
+            "subtle-strong": "{colors.base.red.100}"
+        },
+        "primary": {
+            "strong": "{colors.base.blue.800}",
+            "active": "{colors.base.blue.700}",
+            "default": "{colors.base.blue.500}",
+            "hover": "{colors.base.blue.600}",
+            "subtle": "{colors.base.blue.50}",
+            "subtle-strong": "{colors.base.blue.100}"
+        },
+        "secondary": {
+            "strong": "{colors.base.indigo.800}",
+            "active": "{colors.base.indigo.700}",
+            "default": "{colors.base.indigo.500}",
+            "hover": "{colors.base.indigo.600}",
+            "subtle": "{colors.base.indigo.50}",
+            "subtle-strong": "{colors.base.indigo.100}"
+        },
+        "success": {
+            "strong": "{colors.base.green.800}",
+            "active": "{colors.base.green.700}",
+            "default": "{colors.base.green.500}",
+            "hover": "{colors.base.green.600}",
+            "subtle": "{colors.base.green.50}",
+            "subtle-strong": "{colors.base.green.100}"
+        },
+        "warning": {
+            "strong": "{colors.base.amber.800}",
+            "active": "{colors.base.amber.700}",
+            "default": "{colors.base.amber.500}",
+            "hover": "{colors.base.amber.600}",
+            "subtle": "{colors.base.amber.50}",
+            "subtle-strong": "{colors.base.amber.100}"
+        }
+    }
+}

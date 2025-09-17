@@ -1,0 +1,176 @@
+{
+    "accessibility": {
+        "trigger": {
+            "role": "combobox",
+            "aria-haspopup": "listbox",
+            "aria-expanded": "true|false",
+            "aria-controls": "<listbox-id>",
+            "aria-activedescendant": "<option-id> (when open)",
+            "keyboard": {
+                "Enter": "toggle dropdown / select highlighted option",
+                "Space": "toggle dropdown / select highlighted option",
+                "ArrowDown": "open dropdown if closed, else move highlight down",
+                "ArrowUp": "open dropdown if closed, else move highlight up",
+                "Esc": "close dropdown and restore focus",
+                "Tab": "move focus out of component"
+            }
+        },
+        "listbox": {
+            "id": "<listbox-id>",
+            "role": "listbox",
+            "aria-labelledby": "<trigger-id>",
+            "rendering": "portalled (e.g. attached to <body>)",
+            "focus_model": "aria-activedescendant"
+        },
+        "option": {
+            "role": "option",
+            "id": "<option-id>",
+            "aria-selected": "true|false",
+            "keyboard": {
+                "Enter": "select option and close",
+                "Space": "select option and close"
+            }
+        },
+        "multi_select_variant": {
+            "option": {
+                "aria-selected": "true|false",
+                "aria-checked": "true|false",
+                "role": "option (with checkbox semantics if desired)"
+            },
+            "trigger_display": "tokens/chips or summary text"
+        },
+        "form_integration": {
+            "hidden_input": "mirror selected value(s) into <input type='hidden'> or <select hidden>",
+            "value_sync": "keep in sync with custom UI"
+        }
+    },
+    "typography": {
+        "base": "{typography.body.md}"
+    },
+    "constraints": {
+        "width": {
+            "min": "120px",
+            "max": "320px"
+        }
+    },
+    "trigger": {
+        "default": {
+            "bg": "{colors.modes.light.background.surface}",
+            "border": "1px solid {colors.modes.light.border.default}",
+            "height": "{height.md}",
+            "padding": [0, "{spacing.3}"],
+            "radius": "{radius.sm}",
+            "text": "{colors.modes.light.text.primary}",
+            "icon": {
+                "color": "{colors.modes.light.text.secondary}",
+                "size": "16px"
+            }
+        },
+        "hover": {
+            "bg": "{colors.modes.light.background.subtle}",
+            "border": "1px solid {colors.modes.light.border.strong}"
+        },
+        "focus": {
+            "border": "1px solid {colors.modes.light.border.focus}",
+            "shadow": "{shadow.focus}",
+            "icon": {
+                "color": "{colors.modes.light.text.primary}"
+            }
+        },
+        "open": {
+            "border": "1px solid {colors.modes.light.border.focus}",
+            "shadow": "{shadow.focus}",
+            "icon": {
+                "color": "{colors.modes.light.text.primary}"
+            }
+        },
+        "disabled": {
+            "bg": "{colors.modes.light.background.subtle}",
+            "border": "1px solid {colors.modes.light.border.subtle}",
+            "text": "{colors.modes.light.text.disabled}",
+            "cursor": "not-allowed"
+        },
+        "error": {
+            "border": "1px solid {colors.states.danger.default}",
+            "text": "{colors.states.danger.strong}"
+        }
+    },
+    "menu": {
+        "bg": "{colors.modes.light.background.surface}",
+        "margin": "{spacing.1}",
+        "padding": "{spacing.2}",
+        "radius": "{radius.md}",
+        "shadow": "{shadow.level2}",
+        "maxHeight": "200px"
+    },
+    "item": {
+        "default": {
+            "bg": "transparent",
+            "padding": "{spacing.2}",
+            "radius": "{radius.sm}",
+            "text": "{colors.modes.light.text.primary}"
+        },
+        "hover": {
+            "bg": "{colors.states.primary.subtle}",
+            "text": "{colors.states.primary.default}"
+        },
+        "active": {
+            "bg": "{colors.states.primary.default}",
+            "text": "{colors.modes.light.text.inverse}"
+        }
+    },
+    "modes": {
+        "dark": {
+            "trigger": {
+                "default": {
+                    "bg": "{colors.modes.dark.background.surface}",
+                    "border": "1px solid {colors.modes.dark.border.default}",
+                    "text": "{colors.modes.dark.text.primary}",
+                    "icon": {
+                        "color": "{colors.modes.dark.text.secondary}"
+                    }
+                },
+                "hover": {
+                    "bg": "{colors.modes.dark.background.subtle}",
+                    "border": "1px solid {colors.modes.dark.border.strong}"
+                },
+                "focus": {
+                    "border": "1px solid {colors.modes.dark.border.focus}",
+                    "icon": {
+                        "color": "{colors.modes.dark.text.primary}"
+                    }
+                },
+                "open": {
+                    "border": "1px solid {colors.modes.dark.border.focus}",
+                    "icon": {
+                        "color": "{colors.modes.dark.text.primary}"
+                    }
+                },
+                "disabled": {
+                    "bg": "{colors.modes.dark.background.subtle}",
+                    "border": "1px solid {colors.modes.dark.border.subtle}",
+                    "text": "{colors.modes.dark.text.disabled}"
+                },
+                "error": {
+                    "border": "1px solid {colors.states.danger.default}",
+                    "text": "{colors.states.danger.strong}"
+                }
+            },
+            "menu": {
+                "bg": "{colors.modes.dark.background.surface}"
+            },
+            "item": {
+                "default": {
+                    "text": "{colors.modes.dark.text.primary}"
+                },
+                "hover": {
+                    "bg": "{colors.modes.dark.states.primary.subtle}",
+                    "text": "{colors.states.primary.default}"
+                },
+                "active": {
+                    "text": "{colors.modes.dark.text.inverse}"
+                }
+            }
+        }
+    }
+}

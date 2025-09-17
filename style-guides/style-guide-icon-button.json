@@ -1,0 +1,18 @@
+{
+  "active": { "bg": "{colors.states.primary.subtle}", "text": "{colors.states.primary.active}" },
+  "base": { "bg": "transparent", "shadow": "{shadow.level0}", "text": "{colors.modes.light.text.primary}" },
+  "disabled": { "text": "{colors.modes.light.text.disabled}" },
+  "focus-visible": { "shadow": "{shadow.focus}" },
+  "hover": {
+    "bg": "{colors.states.primary.subtle}",
+    "shadow": "{shadow.level1}",
+    "text": "{colors.states.primary.default}"
+  },
+  "tokens": {
+    "sizes": {
+      "lg": { "radius": "{radius.pill}", "size": "{height.lg}" },
+      "md": { "radius": "{radius.pill}", "size": "{height.md}" },
+      "sm": { "radius": "{radius.pill}", "size": "{height.sm}" }
+    }
+  }
+}

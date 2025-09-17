@@ -1,0 +1,66 @@
+{
+    "structure": {
+        "parts": ["checkbox", "checked", "indeterminate", "label"]
+    },
+    "a11y": { "minTouchTarget": 44 },
+    "accessibility": {
+        "ariaAttributes": {
+            "aria-checked": "true | false | mixed",
+            "aria-disabled": "when checkbox is not interactive",
+            "aria-labelledby": "id-of-label"
+        },
+        "keyboard": {
+            "space": "toggles checked/unchecked/indeterminate",
+            "focusRing": "visible on Tab"
+        },
+        "contrast": {
+            "minimumRatio": "4.5:1 for text vs background (WCAG AA)"
+        }
+    },
+    "sizes": {
+        "md": {
+            "box": {
+                "size": 20,
+                "radius": "{radius.xs}"
+            },
+            "checked": {
+                "size": 12,
+                "color": "{colors.modes.light.text.inverse}"
+            },
+            "label": {
+                "gap": "{spacing.2}",
+                "color": "{colors.modes.light.text.primary}"
+            }
+        }
+    },
+    "variants": {
+        "default": {
+            "state": {
+                "unchecked": {
+                    "backgroundColor": "{colors.modes.light.background.surface}",
+                    "border": "1px solid {colors.modes.light.border.default}",
+                    "shadow": "{shadow.level0}"
+                },
+                "checked": {
+                    "backgroundColor": "{colors.states.primary.default}",
+                    "border": "1px solid {colors.states.primary.default}",
+                    "shadow": "{shadow.level1}"
+                },
+                "indeterminate": {
+                    "backgroundColor": "{colors.states.primary.default}",
+                    "border": "1px solid {colors.states.primary.default}"
+                },
+                "hover": {
+                    "border": "1px solid {colors.modes.light.border.strong}"
+                },
+                "focus": {
+                    "shadow": "{shadow.focus}"
+                },
+                "disabled": {
+                    "backgroundColor": "{colors.modes.light.background.subtle}",
+                    "border": "1px solid {colors.modes.light.border.default}"
+                }
+            }
+        }
+    }
+}
