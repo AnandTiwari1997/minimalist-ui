@@ -3,6 +3,9 @@ import type { CSSProperties } from 'react';
 import { isUnitless, isValidCSSKey, type Theme } from '@minimalist-ui/core';
 import { isResponsive } from '@minimalist-ui/core/system/stylesheet';
 
+/**
+ * Mapping of shorthand CSS properties to their full names.
+ */
 export const CSSPropertiesShort: Record<string, keyof CSSProperties> = {
     align: 'alignItems',
     b: 'bottom',
@@ -68,6 +71,13 @@ export const CSSPropertiesShort: Record<string, keyof CSSProperties> = {
     w: 'width'
 };
 
+/**
+ * Expand a shorthand CSS property into its full form.
+ * @param {string} key - The shorthand CSS property.
+ * @param {keyof CSSProperties} cssKey - The full CSS property name.
+ * @param {any} value - The value of the CSS property.
+ * @returns {Record<string, any>} An object containing the expanded CSS properties and their values.
+ */
 export function expandShorthand(key: string, cssKey: keyof CSSProperties, value: any) {
     if (key === 'px') {
         return { paddingLeft: validateUnit('paddingLeft', value), paddingRight: validateUnit('paddingRight', value) };
@@ -84,6 +94,13 @@ export function expandShorthand(key: string, cssKey: keyof CSSProperties, value:
     return { [cssKey]: validateUnit(cssKey, value) };
 }
 
+/**
+ * Resolve a CSS property value based on the theme.
+ * @param {string} key - The CSS property name.
+ * @param {any} value - The CSS property value.
+ * @param {Theme} theme - The current theme object.
+ * @returns {any} The resolved CSS property value.
+ */
 export function resolveValue(key: string, value: any, theme: Theme): any {
     if (value === null) {
         return value;
@@ -122,6 +139,12 @@ export function resolveValue(key: string, value: any, theme: Theme): any {
     return value;
 }
 
+/**
+ * Split props into styleProps and domProps based on the theme.
+ * @param {T extends Record<string, any>} props - The props object to split.
+ * @param {Theme} theme - The current theme object.
+ * @returns {{ domProps: Record<string, any>, styleProps: Record<string, any> }} An object containing the split props.
+ */
 export function splitProps<T extends Record<string, any>>(props: T, theme: Theme) {
     const styleProps: Record<string, any> = {};
     const domProps: Record<string, any> = {};
@@ -153,6 +176,12 @@ export function splitProps<T extends Record<string, any>>(props: T, theme: Theme
     return { domProps, styleProps };
 }
 
+/**
+ * Validate a CSS property value and append 'px' if necessary.
+ * @param {string} property - The CSS property name.
+ * @param {number | string} value - The CSS property value.
+ * @returns {number | string} The validated CSS property value.
+ */
 function validateUnit(property: string, value: number | string) {
     if (isUnitless(property)) {
         return value;
@@ -161,6 +190,11 @@ function validateUnit(property: string, value: number | string) {
     return isNaN(parsedValue) ? value : `${parsedValue}px`;
 }
 
+/**
+ * Hash a string to a short and safe hash value.
+ * @param {string} str - The input string to hash.
+ * @returns {string} The hashed string.
+ */
 export function hashString(str: string): string {
     let hash = 0,
         i,

@@ -1,7 +1,13 @@
 import { styled } from '@minimalist-ui/core/system';
-import { type CommonClasses, names, getRippleStyle, useGenerateClasses, useRipple } from '@minimalist-ui/core';
+import {
+    type CommonClasses,
+    names,
+    getRippleStyle,
+    useGenerateClasses,
+    useRipple,
+    useMergedRefs} from '@minimalist-ui/core';
 import type { RippleProps } from '@minimalist-ui/core/components/ripple/types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 
 const RippleContainer = styled<'div', RippleProps>('div')({
     base: {
@@ -15,7 +21,7 @@ const RippleContainer = styled<'div', RippleProps>('div')({
 
 const RippleSpan = styled<'span', RippleProps>('span')({});
 
-export const Ripple = (props: RippleProps) => {
+export const Ripple = forwardRef<HTMLDivElement, RippleProps>((props: RippleProps, forwardRef) => {
     const {
         rippleDuration = 200,
         rippleColor = 'currentColor',
@@ -28,6 +34,7 @@ export const Ripple = (props: RippleProps) => {
 
     const [style, setStyle] = useState<React.CSSProperties>({});
     const divRef = useRef<HTMLDivElement>(null);
+    const setRefs = useMergedRefs(forwardRef, divRef);
 
     const rippleClasses: CommonClasses = {
         active: ripples.length > 0
@@ -44,7 +51,7 @@ export const Ripple = (props: RippleProps) => {
 
     return (
         <RippleContainer
-            ref={divRef}
+            ref={setRefs}
             onMouseDown={createRipple}
             className={names(classes.root, classes.active, className)}
             {...rest}
@@ -67,4 +74,4 @@ export const Ripple = (props: RippleProps) => {
                 })}
         </RippleContainer>
     );
-};
+});

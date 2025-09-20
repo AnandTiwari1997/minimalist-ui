@@ -7,5 +7,6 @@ export * from "./IconButton.props";
 export * from "./Input.props";
 export * from "./List.props";
 export * from "./ListItem.props";
+export * from "./Ripple.props";
 export * from "./Select.props";
 export * from "./SelectItem.props";

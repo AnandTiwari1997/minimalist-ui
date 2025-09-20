@@ -7,6 +7,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import { defineConfig } from 'rollup';
 import alias from '@rollup/plugin-alias';
+import path from 'path';
 
 export default defineConfig([
     {
@@ -31,7 +32,7 @@ export default defineConfig([
                 entries: [
                     {
                         find: '@minimalist-ui',
-                        replacement: '/Users/anandt1/Documents/own/minimalist-ui/src'
+                        replacement: path.resolve(__dirname, 'src')
                     }
                 ]
             }),
@@ -86,7 +87,7 @@ export default defineConfig([
                 entries: [
                     {
                         find: '@minimalist-ui',
-                        replacement: '/Users/anandt1/Documents/own/minimalist-ui/src'
+                        replacement: path.resolve(__dirname, 'src')
                     }
                 ]
             }),

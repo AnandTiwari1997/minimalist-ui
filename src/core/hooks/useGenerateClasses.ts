@@ -1,3 +1,17 @@
+/**
+ * A custom React hook that generates CSS class names based on a base class name and configuration options.
+ *
+ * @param {boolean} includeRoot - Indicates whether the root class should be included in the generated classes (default is true).
+ * @returns {Function} A function that takes a base class name and an optional configuration object as arguments, and returns an object containing the generated CSS class names.
+ *
+ * @example
+ * const MyComponent = () => {
+ *   const generateClasses = useGenerateClasses();
+ *   const classes = generateClasses('my-component', { parts: ['header', 'footer'], variants: { active: true, size: 'large' } });
+ *
+ *   return <div className={classes.root}>...</div>;
+ * }
+ */
 export function useGenerateClasses(includeRoot: boolean = true) {
     return (
         base: string,

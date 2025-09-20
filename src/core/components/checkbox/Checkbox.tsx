@@ -146,7 +146,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, forw
     });
 
     return (
-        <CheckboxRoot classNames={names(classes.base, classes.root, className)} size={size} label={label}>
+        <CheckboxRoot className={names(classes.base, classes.root, className)} size={size} label={label}>
             <CheckboxInput
                 defaultChecked={defaultChecked}
                 id={id}
@@ -156,7 +156,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, forw
                 aria-disabled={disabled}
                 aria-checked={isChecked}
                 type={'checkbox'}
-                classNames={names(classes.checkbox, classes.checked, classes.indeterminate, className)}
+                className={names(classes.checkbox, classes.checked, classes.indeterminate, className)}
                 disabled={disabled}
                 checkboxState={checkboxState}
                 size={size}

@@ -7,6 +7,10 @@ import { responsive, type Theme, useTheme } from '@minimalist-ui/core/theme';
 import React, { type CSSProperties, type ReactNode, useMemo } from 'react';
 import type { PseudoSelector } from '@minimalist-ui/core';
 
+/**
+ * The StyledFn type defines a function that takes in theme and props and returns StyleProps.
+ * @template P - The props that can be passed to the created component.
+ */
 export type StyledFn<T extends NativeElementKeys, P> = ((props: StyledType<T, P>) => StyleProps) | StyleProps;
 
 type Combinator = '~' | '>' | '+' | ' ';
@@ -23,6 +27,11 @@ export interface StyledFnInput<T extends NativeElementKeys, P> {
 
 // type StyledComponent<P = any> = React.FC<P> & { __className?: string };
 
+/**
+ * The StyledProps type defines the properties that can be passed to a styled component.
+ * @template T - The type of HTML element to be created.
+ * @template P - Additional props that can be passed to the created component.
+ */
 export type StyledProps<T extends keyof JSX.IntrinsicElements, P> = {
     children?: ReactNode;
     css?: CSSProperties;
@@ -31,6 +40,9 @@ export type StyledProps<T extends keyof JSX.IntrinsicElements, P> = {
     P &
     StyleProps;
 
+/**
+ * The StyleProps type defines the style properties that can be applied to a styled component.
+ */
 export type StyleProps = Partial<CSSProperties> & {
     [K in PseudoSelector]?: StyleProps;
 } & {
@@ -63,6 +75,14 @@ function validatePropCondition<P>(
     return shouldApply;
 }
 
+/**
+ * The styled function creates a new React component with the given tag name,
+ * and applies styles based on the input properties.
+ * @template T - The type of HTML element to be created.
+ * @template P - The props that can be passed to the created component.
+ * @param {T} tag - The tag name for the new React component.
+ * @returns {(props: StyledProps<T, P>) => JSX.Element} A function that takes in props and returns a JSX element.
+ */
 export function styled<T extends Tag, P extends {} = {}>(tag: T) {
     return (inputs: StyledFnInput<any, P> = {}) => {
         const variantOverrides = inputs.variantOrder ?? Object.keys(inputs.variants ?? {});
@@ -70,7 +90,7 @@ export function styled<T extends Tag, P extends {} = {}>(tag: T) {
             Object.keys(concatenatedVariant.variant)
         );
         const allRelevantPropKeys = [...new Set([...variantOverrides, ...concatenatedVariantsOverride])];
-        const StyledComponent = (props: StyledProps<any, P>) => {
+        const Component = React.forwardRef<any, StyledProps<any, P>>((props: StyledProps<any, P>, ref) => {
             const { children, className = '', css, ...rest } = props;
             const theme = useTheme().theme;
             const { domProps, styleProps } = splitProps(rest, theme);
@@ -116,9 +136,11 @@ export function styled<T extends Tag, P extends {} = {}>(tag: T) {
 
             StyledComponent.__className = generatedClassName;
             const finalClassName = [generatedClassName, className].filter(Boolean).join(' ').trim();
-            const finalProps = { className: finalClassName, ...domProps };
+            const finalProps = { ref, className: finalClassName, ...domProps };
             return React.createElement<P>(tag, finalProps as unknown as P, children);
-        };
+        });
+
+        const StyledComponent = Component as unknown as StyledComponent<any, P>;
         StyledComponent.__className = undefined as unknown as string;
         return StyledComponent;
     };
@@ -190,6 +212,14 @@ function mergeStyles(...styles: (StyleProps | undefined)[]) {
     return merged;
 }
 
+/**
+ * The styledV2 function is an optimized version of the styled function.
+ * It separates static and dynamic styles to improve performance.
+ * @template T - The type of HTML element to be created.
+ * @template P - The props that can be passed to the created component.
+ * @param {T} tag - The tag name for the new React component.
+ * @returns {(props: StyledProps<T, P>) => JSX.Element} A function that takes in props and returns a JSX element.
+ */
 export function styledV2<T extends NativeElementKeys, P = {}>(tag: T) {
     return (inputs: StyledFnInput<T, P>) => {
         const theme = useTheme().theme;

@@ -1,5 +1,21 @@
 import { type RefObject, useEffect } from 'react';
 
+/**
+ * A custom React hook that traps focus within a container element.
+ *
+ * @param {RefObject<HTMLElement>} containerRef - A React ref object pointing to the container DOM element.
+ * @param {boolean} active - Indicates whether the focus trap should be active or not.
+ *
+ * @example
+ * const MyComponent = () => {
+ *   const containerRef = useRef<HTMLElement>(null);
+ *   const isActive = true; // Set based on your application's logic
+ *
+ *   useFocusTrap(containerRef, isActive);
+ *
+ *   return <div ref={containerRef}>...</div>;
+ * }
+ */
 export function useFocusTrap(containerRef: RefObject<HTMLElement>, active: boolean) {
     useEffect(() => {
         if (!active || !containerRef.current) return;
@@ -37,3 +53,4 @@ export function useFocusTrap(containerRef: RefObject<HTMLElement>, active: boole
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [active, containerRef]);
 }
+

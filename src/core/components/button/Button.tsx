@@ -13,7 +13,7 @@ import {
 
 import { Icon } from '@minimalist-ui/core/components/icon/Icon';
 import { styled, type StyledType } from '@minimalist-ui/core/system';
-import React, { useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { Ripple } from '@minimalist-ui/core/components/ripple';
 
 type InternalButtonProp = PropWithState<ButtonProps>;
@@ -178,7 +178,7 @@ const IconRoot = styled<typeof Icon, InternalButtonProp>(Icon)({
     }
 });
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props: ButtonProps, forwardedRef) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props: ButtonProps, forwardedRef) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const isHovering = useHover(buttonRef);
     const isActive = useActive(buttonRef);

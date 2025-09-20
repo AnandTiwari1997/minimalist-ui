@@ -8,6 +8,14 @@ interface PositionOptions {
     strategy?: ('flip' | 'shift')[];
 }
 
+/**
+ * Custom React hook to calculate and manage the positioning of an overlay element relative to an anchor element.
+ * @param {RefObject<HTMLElement>} overlayRef - Reference to the overlay element.
+ * @param {HTMLElement | null} anchorElement - The anchor element to which the overlay is positioned.
+ * @param {{ placement?: 'top' | 'bottom' | 'left' | 'right'; offset?: number; strategy?: ('flip' | 'shift')[]; }} options - Options for positioning and behavior of the overlay.
+ * @param {boolean} autoUpdate - Whether to automatically update the position when window resize or scroll events occur, or when the size of the overlay element changes.
+ * @returns {{ coords: { top: number; left: number; placement: 'top' | 'bottom' | 'left' | 'right'; } }} An object containing the calculated coordinates and final placement of the overlay.
+ */
 export function usePosition(
     overlayRef: RefObject<HTMLElement>,
     anchorElement: HTMLElement | null,

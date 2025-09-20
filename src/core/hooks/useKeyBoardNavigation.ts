@@ -1,6 +1,15 @@
 import { useKeyDownHandler } from '@minimalist-ui/core/hooks/useKeyDownHandler';
 import { useEffect } from 'react';
 
+/**
+ * Options for configuring keyboard navigation behavior.
+ * @typedef {Object} KeyboardNavigationOptions
+ * @property {() => void} [onEnter] - Callback function to be executed when the Enter key is pressed.
+ * @property {() => void} [onArrowDown] - Callback function to be executed when the Arrow Down key is pressed.
+ * @property {() => void} [onArrowUp] - Callback function to be executed when the Arrow Up key is pressed.
+ * @property {() => void} [onArrowLeft] - Callback function to be executed when the Arrow Left key is pressed.
+ * @property {() => void} [onArrowRight] - Callback function to be executed when the Arrow Right key is pressed.
+ */
 export interface KeyboardNavigationOptions {
     onEnter?: () => void;
     onArrowDown?: () => void;
@@ -9,6 +18,11 @@ export interface KeyboardNavigationOptions {
     onArrowRight?: () => void;
 }
 
+/**
+ * A custom React hook for handling keyboard navigation events.
+ * @param {KeyboardNavigationOptions} [navigationOptions] - An object containing optional callback functions for different keyboard events.
+ * @returns {{ onKeyDown: (event: KeyboardEvent) => void }} - An object with an `onKeyDown` property that should be attached to the desired DOM element.
+ */
 export function useKeyBoardNavigation(navigationOptions?: KeyboardNavigationOptions) {
     const { onKeyDown, register, unregister } = useKeyDownHandler();
 
