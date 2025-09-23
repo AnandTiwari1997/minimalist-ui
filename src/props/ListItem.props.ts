@@ -5833,13 +5833,6 @@ export const ListItemPropMetadata = {
       },
       "description": ""
     },
-    "value": {
-      "required": false,
-      "type": {
-        "name": "string | number | readonly string[] | undefined"
-      },
-      "description": ""
-    },
     "defaultChecked": {
       "required": false,
       "type": {
@@ -7720,6 +7713,13 @@ export const ListItemPropMetadata = {
       "required": false,
       "type": {
         "name": "React.TransitionEventHandler<HTMLLIElement> | undefined"
+      },
+      "description": ""
+    },
+    "value": {
+      "required": false,
+      "type": {
+        "name": "string | number | readonly string[] | undefined"
       },
       "description": ""
     }

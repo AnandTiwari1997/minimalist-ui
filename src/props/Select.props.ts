@@ -5840,20 +5840,6 @@ export const SelectPropMetadata = {
       },
       "description": ""
     },
-    "disabled": {
-      "required": false,
-      "type": {
-        "name": "boolean | undefined"
-      },
-      "description": ""
-    },
-    "name": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
     "defaultChecked": {
       "required": false,
       "type": {
@@ -7755,6 +7741,20 @@ export const SelectPropMetadata = {
       "required": false,
       "type": {
         "name": "boolean | undefined"
+      },
+      "description": ""
+    },
+    "disabled": {
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      },
+      "description": ""
+    },
+    "name": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
       },
       "description": ""
     },

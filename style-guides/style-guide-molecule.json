@@ -84,49 +84,6 @@
             "tokens": { "radius": "{radius.pill}" }
         },
 
-        "badge": {
-            "accessibility": { "aria-label": "status indicator" },
-            "sizes": {
-                "md": {
-                    "font": { "size": "{font.size.sm}", "weight": "{font.weight.medium}" },
-                    "height": 24,
-                    "padding": [0, 10],
-                    "radius": "{radius.pill}"
-                },
-                "sm": {
-                    "font": { "size": "{font.size.xs}", "weight": "{font.weight.medium}" },
-                    "height": 20,
-                    "padding": [0, 8],
-                    "radius": "{radius.pill}"
-                }
-            },
-            "states": {
-                "default": { "shadow": "none" },
-                "focus": { "outline": "{shadow.focus}" },
-                "hover": { "shadow": "{shadow.level1}" }
-            },
-            "variants": {
-                "error": { "bg": "{colors.states.error.subtle}", "text": "{colors.states.error.default}" },
-                "info": { "bg": "{colors.states.info.subtle}", "text": "{colors.states.info.default}" },
-                "success": { "bg": "{colors.states.success.subtle}", "text": "{colors.states.success.default}" },
-                "warning": { "bg": "{colors.states.warning.subtle}", "text": "{colors.states.warning.default}" },
-                "neutral": {
-                    "bg": "{colors.modes.light.background.subtle}",
-                    "text": "{colors.modes.light.text.primary}"
-                },
-                "outline": {
-                    "bg": "transparent",
-                    "border": "1px solid {colors.modes.light.border.default}",
-                    "text": "{colors.modes.light.text.primary}"
-                },
-                "primary": { "bg": "{colors.states.primary.subtle}", "text": "{colors.states.primary.default}" }
-            },
-            "dismissible": {
-                "hover": { "iconColor": "{colors.modes.light.text.primary}" },
-                "iconColor": "{colors.modes.light.text.secondary}"
-            }
-        },
-
         "breadcrumb": {
             "accessibility": {
                 "aria-label": "breadcrumb",

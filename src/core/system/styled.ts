@@ -20,7 +20,7 @@ export interface StyledFnInput<T extends NativeElementKeys, P> {
     variantOrder?: string[];
     variants?: Record<string, Record<string, StyledFn<T, P>>>;
     concatenatedVariants?: {
-        variant: { [key in keyof P]: string | boolean | number | undefined };
+        variant: { [key in keyof P]: string | boolean | number | { [key: string]: string | boolean | number | undefined } | undefined };
         style: StyledFn<T, P>;
     }[];
 }
@@ -62,7 +62,7 @@ type StyledComponent<T extends NativeElementKeys, P> = {
 type Tag = NativeElementKeys | StyledComponent<any, any> | React.FunctionComponent;
 
 function validatePropCondition<P>(
-    propConditions: { [key in keyof P]: string | boolean | number | undefined },
+    propConditions: { [key in keyof P]: string | boolean | number |  { [key: string]: string | boolean | number | undefined } | undefined },
     props: P
 ) {
     if (Object.keys(propConditions).length === 0) return false;

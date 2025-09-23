@@ -46,7 +46,7 @@ export const ButtonPropMetadata = {
     "variant": {
       "required": false,
       "type": {
-        "name": "\"outline\" | \"ghost\" | \"primary\" | \"flat\" | undefined"
+        "name": "\"outline\" | \"flat\" | \"ghost\" | \"primary\" | undefined"
       },
       "description": "",
       "defaultValue": {
@@ -5870,69 +5870,6 @@ export const ButtonPropMetadata = {
       },
       "description": ""
     },
-    "disabled": {
-      "required": false,
-      "type": {
-        "name": "boolean | undefined"
-      },
-      "description": ""
-    },
-    "formAction": {
-      "required": false,
-      "type": {
-        "name": "string | ((formData: FormData) => void | Promise<void>) | undefined"
-      },
-      "description": ""
-    },
-    "formEncType": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "formMethod": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "formNoValidate": {
-      "required": false,
-      "type": {
-        "name": "boolean | undefined"
-      },
-      "description": ""
-    },
-    "formTarget": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "name": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "type": {
-      "required": false,
-      "type": {
-        "name": "\"button\" | \"reset\" | \"submit\" | undefined"
-      },
-      "description": ""
-    },
-    "value": {
-      "required": false,
-      "type": {
-        "name": "string | number | readonly string[] | undefined"
-      },
-      "description": ""
-    },
     "defaultChecked": {
       "required": false,
       "type": {
@@ -7827,6 +7764,69 @@ export const ButtonPropMetadata = {
       "required": false,
       "type": {
         "name": "React.TransitionEventHandler<HTMLButtonElement> | undefined"
+      },
+      "description": ""
+    },
+    "disabled": {
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      },
+      "description": ""
+    },
+    "formAction": {
+      "required": false,
+      "type": {
+        "name": "string | ((formData: FormData) => void | Promise<void>) | undefined"
+      },
+      "description": ""
+    },
+    "formEncType": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "formMethod": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "formNoValidate": {
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      },
+      "description": ""
+    },
+    "formTarget": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "name": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "type": {
+      "required": false,
+      "type": {
+        "name": "\"button\" | \"reset\" | \"submit\" | undefined"
+      },
+      "description": ""
+    },
+    "value": {
+      "required": false,
+      "type": {
+        "name": "string | number | readonly string[] | undefined"
       },
       "description": ""
     }

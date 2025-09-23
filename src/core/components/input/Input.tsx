@@ -169,6 +169,16 @@ const FieldWrapper = styled<'div', InternalInputProp>('div')({
                 borderBottom: 'none',
                 backgroundColor: theme.color.background.subtle
             })
+        },
+        {
+            variant: {
+                disabled: true
+            },
+            style: ({ theme }) => ({
+                cursor: 'not-allowed',
+                color: theme.color.text.disabled,
+                backgroundColor: theme.color.background.subtle
+            })
         }
     ]
 });
@@ -383,11 +393,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         };
 
         return (
-            <InputRoot className={names(classes.base, classes.root, 'w-60')}>
+            <InputRoot hidden={hidden} className={names(classes.base, classes.root, 'w-60')}>
                 <Label htmlFor={id} overrideSize={size} className={names(classes.label, 'w-full')} state={currentState}>
                     {label}
                 </Label>
                 <FieldWrapper
+                    disabled={disabled}
                     state={currentState}
                     overrideSize={size}
                     variant={variant}
@@ -403,6 +414,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                         aria-invalid={internalError !== undefined}
                         ref={setRefs}
                         placeholder={inputPlaceholder}
+                        disabled={disabled}
+                        hidden={hidden}
                         value={currentValue}
                         onChange={handleChange}
                         className={names(

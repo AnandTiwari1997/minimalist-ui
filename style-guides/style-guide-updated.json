@@ -30,42 +30,6 @@
             "tokens": { "radius": "{radius.pill}" }
         },
 
-        "badge": {
-            "dismissible": {
-                "hover": { "iconColor": "{colors.modes.light.text.primary}" },
-                "iconColor": "{colors.modes.light.text.secondary}"
-            },
-            "modes": {
-                "dark": {
-                    "neutral": {
-                        "bg": "{colors.modes.dark.background.subtle}",
-                        "text": "{colors.modes.dark.text.primary}"
-                    }
-                }
-            },
-            "tokens": {
-                "fontWeight": "{font.weight.medium}",
-                "height": "{height.sm}",
-                "padding": [2, 8],
-                "radius": "{radius.pill}"
-            },
-            "variants": {
-                "error": { "bg": "{colors.states.error.subtle}", "text": "{colors.states.error.default}" },
-                "neutral": {
-                    "bg": "{colors.modes.light.background.subtle}",
-                    "text": "{colors.modes.light.text.primary}"
-                },
-                "outline": {
-                    "bg": "transparent",
-                    "border": "1px solid {colors.modes.light.border.default}",
-                    "text": "{colors.modes.light.text.primary}"
-                },
-                "primary": { "bg": "{colors.states.primary.subtle}", "text": "{colors.states.primary.default}" },
-                "success": { "bg": "{colors.states.success.subtle}", "text": "{colors.states.success.default}" },
-                "warning": { "bg": "{colors.states.warning.subtle}", "text": "{colors.states.warning.default}" }
-            }
-        },
-
         "link": {
             "active": { "text": "{colors.states.primary.active}" },
             "base": {
