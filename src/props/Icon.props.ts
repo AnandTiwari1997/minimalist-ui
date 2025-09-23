@@ -5860,13 +5860,6 @@ export const IconPropMetadata = {
       },
       "description": ""
     },
-    "type": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
     "suppressHydrationWarning": {
       "required": false,
       "type": {
@@ -7523,6 +7516,13 @@ export const IconPropMetadata = {
       "required": false,
       "type": {
         "name": "string | number | undefined"
+      },
+      "description": ""
+    },
+    "type": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
       },
       "description": ""
     },

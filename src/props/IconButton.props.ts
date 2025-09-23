@@ -79,69 +79,6 @@ export const IconButtonPropMetadata = {
       },
       "description": ""
     },
-    "disabled": {
-      "required": false,
-      "type": {
-        "name": "boolean | undefined"
-      },
-      "description": ""
-    },
-    "formAction": {
-      "required": false,
-      "type": {
-        "name": "string | ((formData: FormData) => void | Promise<void>) | undefined"
-      },
-      "description": ""
-    },
-    "formEncType": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "formMethod": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "formNoValidate": {
-      "required": false,
-      "type": {
-        "name": "boolean | undefined"
-      },
-      "description": ""
-    },
-    "formTarget": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "name": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "type": {
-      "required": false,
-      "type": {
-        "name": "\"button\" | \"reset\" | \"submit\" | undefined"
-      },
-      "description": ""
-    },
-    "value": {
-      "required": false,
-      "type": {
-        "name": "string | number | readonly string[] | undefined"
-      },
-      "description": ""
-    },
     "defaultChecked": {
       "required": false,
       "type": {
@@ -7793,6 +7730,69 @@ export const IconButtonPropMetadata = {
       },
       "description": ""
     },
+    "disabled": {
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      },
+      "description": ""
+    },
+    "formAction": {
+      "required": false,
+      "type": {
+        "name": "string | ((formData: FormData) => void | Promise<void>) | undefined"
+      },
+      "description": ""
+    },
+    "formEncType": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "formMethod": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "formNoValidate": {
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      },
+      "description": ""
+    },
+    "formTarget": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "name": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "type": {
+      "required": false,
+      "type": {
+        "name": "\"button\" | \"reset\" | \"submit\" | undefined"
+      },
+      "description": ""
+    },
+    "value": {
+      "required": false,
+      "type": {
+        "name": "string | number | readonly string[] | undefined"
+      },
+      "description": ""
+    },
     "ariaLabel": {
       "required": false,
       "type": {
@@ -7810,7 +7810,7 @@ export const IconButtonPropMetadata = {
     "variant": {
       "required": false,
       "type": {
-        "name": "\"outline\" | \"ghost\" | \"primary\" | \"flat\" | undefined"
+        "name": "\"outline\" | \"flat\" | \"ghost\" | \"primary\" | undefined"
       },
       "description": ""
     },

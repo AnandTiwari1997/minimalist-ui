@@ -2,6 +2,7 @@ import type { JSX } from 'react/jsx-runtime';
 
 import React, { type CSSProperties } from 'react';
 
+export * from '@minimalist-ui/core/components/badge';
 export * from '@minimalist-ui/core/components/button';
 export * from '@minimalist-ui/core/components/checkbox';
 export * from '@minimalist-ui/core/components/ripple';

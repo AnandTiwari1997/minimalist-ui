@@ -1,4 +1,5 @@
 // Auto-generated barrel file
+export * from "./Badge.props";
 export * from "./Button.props";
 export * from "./Checkbox.props";
 export * from "./Divider.props";

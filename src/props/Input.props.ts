@@ -141,69 +141,6 @@ export const InputPropMetadata = {
       },
       "description": ""
     },
-    "disabled": {
-      "required": false,
-      "type": {
-        "name": "boolean | undefined"
-      },
-      "description": ""
-    },
-    "formAction": {
-      "required": false,
-      "type": {
-        "name": "string | ((formData: FormData) => void | Promise<void>) | undefined"
-      },
-      "description": ""
-    },
-    "formEncType": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "formMethod": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "formNoValidate": {
-      "required": false,
-      "type": {
-        "name": "boolean | undefined"
-      },
-      "description": ""
-    },
-    "formTarget": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "name": {
-      "required": false,
-      "type": {
-        "name": "string | undefined"
-      },
-      "description": ""
-    },
-    "type": {
-      "required": false,
-      "type": {
-        "name": "React.HTMLInputTypeAttribute | undefined"
-      },
-      "description": ""
-    },
-    "value": {
-      "required": false,
-      "type": {
-        "name": "string | number | readonly string[] | undefined"
-      },
-      "description": ""
-    },
     "defaultChecked": {
       "required": false,
       "type": {
@@ -7855,6 +7792,13 @@ export const InputPropMetadata = {
       },
       "description": ""
     },
+    "disabled": {
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      },
+      "description": ""
+    },
     "list": {
       "required": false,
       "type": {
@@ -7866,6 +7810,62 @@ export const InputPropMetadata = {
       "required": false,
       "type": {
         "name": "string | number | undefined"
+      },
+      "description": ""
+    },
+    "formAction": {
+      "required": false,
+      "type": {
+        "name": "string | ((formData: FormData) => void | Promise<void>) | undefined"
+      },
+      "description": ""
+    },
+    "formEncType": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "formMethod": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "formNoValidate": {
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      },
+      "description": ""
+    },
+    "formTarget": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "name": {
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      },
+      "description": ""
+    },
+    "type": {
+      "required": false,
+      "type": {
+        "name": "React.HTMLInputTypeAttribute | undefined"
+      },
+      "description": ""
+    },
+    "value": {
+      "required": false,
+      "type": {
+        "name": "string | number | readonly string[] | undefined"
       },
       "description": ""
     },
