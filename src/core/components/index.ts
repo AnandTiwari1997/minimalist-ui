@@ -10,6 +10,7 @@ export * from '@minimalist-ui/core/components/input';
 export * from '@minimalist-ui/core/components/icon';
 export * from '@minimalist-ui/core/components/iconButton';
 export * from '@minimalist-ui/core/components/select';
+export * from '@minimalist-ui/core/components/tooltip';
 export * from '@minimalist-ui/core/components/list';
 export * from '@minimalist-ui/core/components/divider';
 export * from '@minimalist-ui/core/components/primitive';

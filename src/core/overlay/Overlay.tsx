@@ -12,12 +12,16 @@ export const Overlay: FC<OverlayProps> = ({
     token,
     css,
     anchor,
-    placement = 'bottom',
+    anchorPlacement = { placement: 'bottom', anchor: 'start' },
+    offset = 0,
+    operations = ['flip', 'shift'],
     children,
     dismissEvents = ['esc'],
     onDismiss,
+    onPositionUpdate,
     backdrop,
     restoreFocus,
+    allowFocusTrap = true,
     timeoutMs = 3000
 }) => {
     const overlayRef = useRef<HTMLDivElement>(document.createElement('div'));
@@ -27,15 +31,18 @@ export const Overlay: FC<OverlayProps> = ({
     const zIndex = theme.zIndex[token];
     const [ready, setReady] = useState(false);
 
+    if (allowFocusTrap) {
     useInert(overlayRef, backdrop || false);
     useFocusTrap(overlayRef, backdrop || false);
+    }
+    
     const { coords } = usePosition(
         overlayRef,
         anchor ?? null,
         {
-            placement,
-            offset: 0,
-            strategy: ['flip', 'shift']
+            placement: anchorPlacement,
+            offset,
+            operations
         },
         true
     );
@@ -52,11 +59,12 @@ export const Overlay: FC<OverlayProps> = ({
         overlayElement.style.top = ready ? `${coords.top}px` : '-9999px';
         overlayElement.style.left = ready ? `${coords.left}px` : '-9999px';
         overlayElement.style.visibility = ready ? 'visible' : 'hidden';
+        onPositionUpdate?.(coords);
     }, [coords]);
 
     useEffect(() => {
         const previouslyFocused = document.activeElement as HTMLElement | null;
-        ensureBackdrop();
+        if (backdrop) ensureBackdrop();
         const overlayElement = overlayRef.current;
         const instance = {
             id: id,
@@ -87,7 +95,7 @@ export const Overlay: FC<OverlayProps> = ({
                 previouslyFocused.focus();
             }
         };
-    }, [anchor, placement, zIndex, onDismiss, timeoutMs, token]);
+    }, [anchor, anchorPlacement, zIndex, onDismiss, timeoutMs, token]);
 
     return ReactDOM.createPortal(children, overlayRef.current);
 };

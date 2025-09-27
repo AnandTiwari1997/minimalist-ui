@@ -73,6 +73,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(props, re
 
     return (
         <IconRoot
+            tabIndex={0}
             ref={ref}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

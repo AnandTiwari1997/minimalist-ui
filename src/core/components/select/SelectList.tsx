@@ -1,6 +1,7 @@
 import { KeyBoardNavigation, List, names, useRovingContext } from '@minimalist-ui/core';
 import { cloneElement, type ReactElement, useEffect, useRef, useState } from 'react';
 import type { SelectListProps } from '@minimalist-ui/core/components/select/types';
+import { SelectItem } from '@minimalist-ui/core/components/select/SelectItem';
 
 export const SelectList = ({
     options,
@@ -58,14 +59,19 @@ export const SelectList = ({
                 className={names(classes.options)}
                 {...rest}
             >
-                {options.map((child, index) =>
-                    cloneElement(child as ReactElement<any>, {
-                        ref: (element: HTMLLIElement) => (itemRefs.current[index] = element),
-                        className: names(classes.option),
-                        selected: activeIndex === index,
-                        onClick: () => onSelect(index)
-                    })
-                )}
+                {options.map((child, index) => {
+                    if (child.type === SelectItem) {
+                        return cloneElement(child as ReactElement<any>, {
+                            ref: (element: HTMLLIElement) => (itemRefs.current[index] = element),
+                            className: names(classes.option),
+                            selected: activeIndex === index,
+                            onClick: () => onSelect(index)
+                        });
+                    } else {
+                        console.warn('Option is not a SelectItem component:', child.type);
+                        return child;
+                    }
+                })}
             </List>
         </KeyBoardNavigation>
     );

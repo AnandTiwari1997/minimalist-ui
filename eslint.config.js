@@ -13,7 +13,7 @@ import eslintParser from 'typescript-eslint';
 
 const noRestrictedImportsPatterns = ['./*', '../*'];
 export default defineConfig([
-    globalIgnores(['dist/', 'storybook-static/', 'tsconfig.json']),
+    globalIgnores(['dist/', 'storybook-static/', 'tsconfig.json', 'node_modules/', 'build/', 'scripts/']),
     jsPlugin.configs.recommended,
     securityPlugin.configs.recommended,
     ...storybookPlugin.configs['flat/recommended'],

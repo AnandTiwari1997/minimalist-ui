@@ -1,3 +1,5 @@
+import { createContext, useContext } from 'react';
+
 /** Indicates whether an overlay provider is currently mounted. */
 let hasOverlayProvider = false;
 
@@ -17,3 +19,14 @@ export function markOverlayProviderUnmounted() {
 export function isOverlayProviderMounted() {
     return hasOverlayProvider;
 }
+
+export const OverlayContext = createContext(null);
+
+export const useOverlayContext = () => {
+  const ctx = useContext(OverlayContext);
+  if (!ctx) {
+    throw new Error('useOverlayContext must be used inside an <OverlayProvider>');
+  }
+  return ctx;
+};
+

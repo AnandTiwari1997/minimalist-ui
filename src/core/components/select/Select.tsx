@@ -182,7 +182,7 @@ const SelectRoot = forwardRef<HTMLSelectElement, SelectProps>((props, forwardedR
             <SelectTriggerContainer state={currentState} className={names(classes.trigger)}>
                 <span className={names(classes.label)}>
                     {selectedIndex != null && selectedIndex >= 0
-                        ? selectOptions[selectedIndex].props.children
+                        ? selectOptions[selectedIndex].props.label || selectOptions[selectedIndex].props.children
                         : placeholder}
                 </span>
             </SelectTriggerContainer>
@@ -193,7 +193,7 @@ const SelectRoot = forwardRef<HTMLSelectElement, SelectProps>((props, forwardedR
                     anchor={selectRef.current!}
                     backdrop={true}
                     dismissEvents={['esc', 'outside-click']}
-                    placement={'bottom'}
+                    anchorPlacement={{ anchor: 'middle', placement: 'bottom' }}
                     onDismiss={() => setOpened(false)}
                     css={{
                         width: `${selectRef.current!.offsetWidth}px`

@@ -1,11 +1,10 @@
 import { useState, useEffect, useCallback, type RefObject } from 'react';
-
-type Placement = 'top' | 'bottom' | 'left' | 'right';
+import type { AnchorPlacement } from '@minimalist-ui/core/overlay/types';
 
 interface PositionOptions {
-    placement?: Placement;
+    placement?: AnchorPlacement;
     offset?: number;
-    strategy?: ('flip' | 'shift')[];
+    operations?: ('flip' | 'shift' | 'arrow')[];
 }
 
 /**
@@ -19,10 +18,10 @@ interface PositionOptions {
 export function usePosition(
     overlayRef: RefObject<HTMLElement>,
     anchorElement: HTMLElement | null,
-    { placement = 'bottom', offset = 8, strategy = ['flip'] }: PositionOptions,
+    { placement = { placement: 'bottom', anchor: 'start' }, offset = 8, operations = ['flip'] }: PositionOptions,
     autoUpdate?: boolean
 ) {
-    const [coords, setCoords] = useState<{ top: number; left: number; placement: Placement }>({
+    const [coords, setCoords] = useState<{ top: number; left: number; placement: AnchorPlacement }>({
         top: 0,
         left: 0,
         placement
@@ -32,67 +31,153 @@ export function usePosition(
         const overlayEl = overlayRef.current;
         if (!overlayEl || !anchorElement) return { top: 0, left: 0, placement };
 
-        return new Promise<{ top: number; left: number; placement: Placement }>((resolve) => {
+        return new Promise<{ top: number; left: number; placement: AnchorPlacement }>((resolve) => {
             requestAnimationFrame(() => {
                 const rect = anchorElement.getBoundingClientRect();
                 const { innerWidth, innerHeight } = window;
 
                 let top = 0,
                     left = 0;
-                let finalPlacement: Placement = placement;
+                // let finalPlacement: Placement = placement;
 
-                if (placement === 'bottom') {
-                    top = rect.bottom + offset + window.scrollY;
+                // if (placement === 'bottom') {
+                //     top = rect.bottom + offset + window.scrollY;
+                //     left = rect.left + window.scrollX;
+                //     if (operations.includes('flip') && rect.bottom + overlayEl.offsetHeight > innerHeight) {
+                //         top = rect.top - overlayEl.offsetHeight - offset + window.scrollY;
+                //         finalPlacement = 'top';
+                //     }
+                //     if (operations.includes('shift') && left + overlayEl.offsetWidth > innerWidth) {
+                //         left = innerWidth - overlayEl.offsetWidth - offset;
+                //     }
+                // }
+
+                // if (placement === 'top') {
+                //     top = rect.top - overlayEl.offsetHeight - offset + window.scrollY;
+                //     left = rect.left + window.scrollX;
+                //     if (operations.includes('flip') && top < 0) {
+                //         top = rect.bottom + offset + window.scrollY;
+                //         finalPlacement = 'bottom';
+                //     }
+                //     if (operations.includes('shift') && left + overlayEl.offsetWidth > innerWidth) {
+                //         left = innerWidth - overlayEl.offsetWidth - offset;
+                //     }
+                // }
+
+                // if (placement === 'right') {
+                //     top = rect.top + window.scrollY;
+                //     left = rect.right + offset + window.scrollX;
+                //     if (operations.includes('flip') && rect.right + overlayEl.offsetWidth > innerWidth) {
+                //         left = rect.left - overlayEl.offsetWidth - offset + window.scrollX;
+                //         finalPlacement = 'left';
+                //     }
+                    // if (operations.includes('shift') && top + overlayEl.offsetHeight > innerHeight) {
+                    //     top = innerHeight - overlayEl.offsetHeight - offset;
+                    // }
+                // }
+
+                // if (placement === 'left') {
+                //     top = rect.top + window.scrollY;
+                //     left = rect.left - overlayEl.offsetWidth - offset + window.scrollX;
+                //     if (operations.includes('flip') && left < 0) {
+                //         left = rect.right + offset + window.scrollX;
+                //         finalPlacement = 'right';
+                //     }
+                //     if (operations.includes('shift') && top + overlayEl.offsetHeight > innerHeight) {
+                //         top = innerHeight - overlayEl.offsetHeight - offset;
+                //     }
+                // }
+
+                let finalPlacement: AnchorPlacement = placement;
+
+                if (finalPlacement.placement === 'top') {
+                    top = rect.top - overlayEl.offsetHeight + window.scrollY;
+                    if (finalPlacement.anchor  === 'start') {
                     left = rect.left + window.scrollX;
-                    if (strategy.includes('flip') && rect.bottom + overlayEl.offsetHeight > innerHeight) {
-                        top = rect.top - overlayEl.offsetHeight - offset + window.scrollY;
-                        finalPlacement = 'top';
+                    } else if (finalPlacement.anchor  === 'middle') {
+                        left = rect.left + rect.width / 2 - overlayEl.offsetWidth / 2 + window.scrollX;
+                    } else if (finalPlacement.anchor  === 'end') {
+                        left = rect.right - overlayEl.offsetWidth + window.scrollX;
                     }
-                    if (strategy.includes('shift') && left + overlayEl.offsetWidth > innerWidth) {
-                        left = innerWidth - overlayEl.offsetWidth - offset;
+                    if (operations.includes('shift')) {
+                        top = top - offset;
+                    }
+                    if (operations.includes('flip') && top < 0) {
+                        top = rect.bottom + window.scrollY;
+                        finalPlacement = {
+                            placement: 'bottom',
+                            anchor: finalPlacement.anchor
+                        };
                     }
                 }
 
-                if (placement === 'top') {
-                    top = rect.top - overlayEl.offsetHeight - offset + window.scrollY;
+                if (finalPlacement.placement === 'bottom') {
+                    top = rect.bottom + window.scrollY;
+                    if (finalPlacement.anchor  === 'start') {
                     left = rect.left + window.scrollX;
-                    if (strategy.includes('flip') && top < 0) {
-                        top = rect.bottom + offset + window.scrollY;
-                        finalPlacement = 'bottom';
+                    } else if (finalPlacement.anchor  === 'middle') {
+                        left = rect.left + rect.width / 2 - overlayEl.offsetWidth / 2 + window.scrollX;
+                    } else if (finalPlacement.anchor  === 'end') {
+                        left = rect.right - overlayEl.offsetWidth + window.scrollX;
                     }
-                    if (strategy.includes('shift') && left + overlayEl.offsetWidth > innerWidth) {
-                        left = innerWidth - overlayEl.offsetWidth - offset;
+                    if (operations.includes('shift')) {
+                        top = top + offset;
                     }
-                }
-
-                if (placement === 'right') {
-                    top = rect.top + window.scrollY;
-                    left = rect.right + offset + window.scrollX;
-                    if (strategy.includes('flip') && rect.right + overlayEl.offsetWidth > innerWidth) {
-                        left = rect.left - overlayEl.offsetWidth - offset + window.scrollX;
-                        finalPlacement = 'left';
-                    }
-                    if (strategy.includes('shift') && top + overlayEl.offsetHeight > innerHeight) {
-                        top = innerHeight - overlayEl.offsetHeight - offset;
+                    if (operations.includes('flip') && rect.bottom + overlayEl.offsetHeight > innerHeight) {
+                        top = rect.top - overlayEl.offsetHeight + window.scrollY;
+                        finalPlacement = {
+                            placement: 'top',
+                            anchor: finalPlacement.anchor
+                        };
                     }
                 }
 
-                if (placement === 'left') {
+                if (finalPlacement.placement === 'left') {
+                    left = rect.left - overlayEl.offsetWidth + window.scrollX;
+                    if (finalPlacement.anchor  === 'start') {
                     top = rect.top + window.scrollY;
-                    left = rect.left - overlayEl.offsetWidth - offset + window.scrollX;
-                    if (strategy.includes('flip') && left < 0) {
-                        left = rect.right + offset + window.scrollX;
-                        finalPlacement = 'right';
+                    } else if (finalPlacement.anchor  === 'middle') {
+                        top = rect.top + rect.height / 2 - overlayEl.offsetHeight / 2 + window.scrollY;
+                    } else if (finalPlacement.anchor  === 'end') {
+                        top = rect.bottom - overlayEl.offsetHeight + window.scrollY;
                     }
-                    if (strategy.includes('shift') && top + overlayEl.offsetHeight > innerHeight) {
-                        top = innerHeight - overlayEl.offsetHeight - offset;
+                    if (operations.includes('shift')) {
+                        left = left - offset;
+                    }
+                    if (operations.includes('flip') && left < 0) {
+                        left = rect.right + window.scrollX;
+                        finalPlacement = {
+                            placement: 'right',
+                            anchor: finalPlacement.anchor
+                        };
+                    }
+                }
+
+                if (finalPlacement.placement === 'right') {
+                    left = rect.right + window.scrollX;
+                    if (finalPlacement.anchor  === 'start') {
+                    top = rect.top + window.scrollY;
+                    } else if (finalPlacement.anchor  === 'middle') {
+                        top = rect.top + rect.height / 2 - overlayEl.offsetHeight / 2 + window.scrollY;
+                    } else if (finalPlacement.anchor  === 'end') {
+                        top = rect.bottom - overlayEl.offsetHeight + window.scrollY;
+                    }
+                    if (operations.includes('shift')) {
+                        left = left + offset;
+                    }
+                    if (operations.includes('flip') && rect.right + overlayEl.offsetWidth > innerWidth) {
+                        left = rect.left - overlayEl.offsetWidth + window.scrollX;
+                        finalPlacement = {
+                            placement: 'left',
+                            anchor: finalPlacement.anchor
+                        };
                     }
                 }
 
                 resolve({ top, left, placement: finalPlacement });
             });
         });
-    }, [overlayRef, anchorElement, placement, offset, strategy]);
+    }, [overlayRef, anchorElement, placement, offset, operations]);
 
     useEffect(() => {
         let mounted = true;
