@@ -1,5 +1,5 @@
 export { Overlay } from '@minimalist-ui/core/overlay/Overlay';
-export type { OverlayInstance, OverlayProps } from '@minimalist-ui/core/overlay/types';
+export type { OverlayInstance, OverlayProps, PositionUpdate, AnchorPlacement } from '@minimalist-ui/core/overlay/types';
 export { useInert } from '@minimalist-ui/core/overlay/useInert';
 export { usePosition } from '@minimalist-ui/core/overlay/usePosition';
 export { overlayManager } from '@minimalist-ui/core/overlay/overlayManager';

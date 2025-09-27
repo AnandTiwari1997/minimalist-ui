@@ -106,7 +106,6 @@ const ButtonRoot = styled<'button', InternalButtonProp>('button')({
                 fontWeight: theme.font.weight.medium,
                 gap: theme.spacing[2],
                 height: '32px',
-                margin: theme.spacing[1],
                 borderRadius: theme.radius.sm
             }),
             md: ({ theme }: StyledType<'button', InternalButtonProp>) => ({
@@ -114,7 +113,6 @@ const ButtonRoot = styled<'button', InternalButtonProp>('button')({
                 fontWeight: theme.font.weight.medium,
                 gap: theme.spacing[2],
                 height: '40px',
-                margin: theme.spacing[1],
                 padding: theme.spacing[3],
                 borderRadius: theme.radius.sm
             }),
@@ -123,7 +121,6 @@ const ButtonRoot = styled<'button', InternalButtonProp>('button')({
                 fontWeight: theme.font.weight.bold,
                 gap: theme.spacing[3],
                 height: '48px',
-                margin: theme.spacing[1],
                 padding: theme.spacing[5],
                 borderRadius: theme.radius.sm
             })
