@@ -156,22 +156,6 @@
                 }
             },
             "resize": "vertical"
-        },
-
-        "tooltip": {
-            "a11y": { "maxWidth": 320, "minDelay": 150 },
-            "arrow": { "offset": 6, "size": 8 },
-            "dark": {
-                "bg": "{colors.modes.dark.background.surface}",
-                "border": "1px solid {colors.modes.dark.border.default}",
-                "text": "{colors.modes.dark.text.primary}"
-            },
-            "light": {
-                "bg": "{colors.modes.light.background.surface}",
-                "border": "1px solid {colors.modes.light.border.default}",
-                "text": "{colors.modes.light.text.primary}"
-            },
-            "tokens": { "padding": [4, 8], "radius": "{radius.sm}", "shadow": "{shadow.level2}" }
         }
     }
 }

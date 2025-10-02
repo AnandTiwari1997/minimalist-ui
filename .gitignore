@@ -13,6 +13,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
+.vscode
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -26,6 +27,7 @@ dist-ssr
 *storybook.log
 storybook-static
 
-build/**
+build
+**/build/**
 .continue
-*/props
+**/props/**

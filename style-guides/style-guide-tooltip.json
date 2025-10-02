@@ -1,0 +1,38 @@
+{
+            "a11y": { "maxWidth": 320, "minDelay": 150 },
+            "arrow": { "offset": 6, "size": 8 },
+            "accessibility": {
+                "aria-hidden": "true until triggered",
+                "role": "tooltip"
+            },
+            "sizes": {
+                "md": {
+                    "font": { "size": "{font.size.sm}", "weight": "{font.weight.regular}" },
+                    "padding": [6, 12],
+                    "radius": "{radius.sm}"
+                },
+                "sm": {
+                    "font": { "size": "{font.size.xs}", "weight": "{font.weight.regular}" },
+                    "padding": [4, 8],
+                    "radius": "{radius.sm}"
+                }
+            },
+            "states": {
+                "default": { "opacity": 0, "transition": "fade" },
+                "visible": { "opacity": 1, "transition": "fade-in" }
+            },
+            "variants": {
+                "dark": {
+                    "bg": "{colors.modes.dark.background.surface}",
+                    "shadow": "{shadow.level2}",
+                    "text": "{colors.modes.dark.text.primary}",
+                    "border": "1px solid {colors.modes.dark.border.default}"
+                },
+                "light": {
+                    "bg": "{colors.modes.light.background.surface}",
+                    "shadow": "{shadow.level2}",
+                    "text": "{colors.modes.light.text.primary}",
+                    "border": "1px solid {colors.modes.light.border.default}"
+                }
+            }
+        }
