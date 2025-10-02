@@ -1,6 +1,7 @@
 export * from '@minimalist-ui/core/animation';
 export * from '@minimalist-ui/core/components';
 export * from '@minimalist-ui/core/css';
+export * from '@minimalist-ui/core/hooks';
 export * from '@minimalist-ui/core/icons';
 export * from '@minimalist-ui/core/overlay';
 export * from '@minimalist-ui/core/system';

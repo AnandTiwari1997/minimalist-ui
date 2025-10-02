@@ -3,6 +3,7 @@ import type { TabClasses, TabProps } from '@minimalist-ui/core/components/tabs/t
 import { useMergedRefs } from '@minimalist-ui/core/hooks/useMergeRefs';
 import { styled, type StyledType } from '@minimalist-ui/core/system';
 import { getState, names, useGenerateClasses, useHover } from '@minimalist-ui/core/utils';
+import { useRovingItem } from '@minimalist-ui/core/hooks/useRovingItem';
 
 const StyledTab = styled<'button', TabProps>('button')({
     base: ({ theme }: StyledType<'button', TabProps>) => ({
@@ -21,7 +22,7 @@ const StyledTab = styled<'button', TabProps>('button')({
         boxSizing: 'border-box',
         cursor: 'pointer',
         ':focus': {
-            outline: theme.shadow.focus,
+            outline: theme.shadow.focus
         },
         ':disabled': {
             borderBottom: `1px solid ${theme.color.text.disabled}`,
@@ -37,22 +38,23 @@ const StyledTab = styled<'button', TabProps>('button')({
                 boxShadow: theme.shadow.level1
             }),
             hovered: ({ theme }: StyledType<'button', TabProps>) => ({
-                color: theme.state.primary.default,
-            }),
+                color: theme.state.primary.default
+            })
         }
     }
-})
+});
 
 export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, forwardRef) => {
     const { children, className, label, value, disabled, onClick, selected, ...rest } = props;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergedRefs(forwardRef, buttonRef);
     const hovered = useHover(buttonRef);
+    useRovingItem(buttonRef as React.RefObject<HTMLElement>);
 
     const isActive = getState({
         active: selected,
         hovered: hovered
-    })
+    });
 
     const tabClasses: TabClasses = {
         disabled,
@@ -76,7 +78,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, forwardRef) =
             onClick={(ev: any) => {
                 if (!disabled) {
                     ev.target['value'] = value;
-                    onClick?.(ev)
+                    onClick?.(ev);
                 }
             }}
             className={names(classes.root, classes.disabled, classes.hover, classes.active, className)}

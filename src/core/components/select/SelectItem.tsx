@@ -1,7 +1,8 @@
 import { getState, styled, useHover, useMergedRefs } from '@minimalist-ui/core';
 import { ListItem } from '@minimalist-ui/core/components/list/ListItem';
-import { forwardRef, useId, useRef } from 'react';
+import React, { forwardRef, useId, useRef } from 'react';
 import type { SelectedItemProps } from '@minimalist-ui/core/components/select/types';
+import { useRovingItem } from '@minimalist-ui/core/hooks/useRovingItem';
 
 const ExtendListItem = styled(ListItem)({
     base: {
@@ -22,6 +23,7 @@ export const SelectItem = forwardRef<HTMLLIElement, SelectedItemProps>((props: S
     const listRef = useRef<HTMLLIElement>(null);
     const isHovered = useHover(listRef);
     const setRefs = useMergedRefs(listRef, forwardRef);
+    useRovingItem(listRef as React.RefObject<HTMLElement>)
 
     const currentState = getState({
         hovered: isHovered || selected

@@ -1,4 +1,4 @@
-import { Children, forwardRef, isValidElement, useEffect, useRef, useState, type JSX } from 'react';
+import { Children, forwardRef, isValidElement, useRef, useState, type JSX } from 'react';
 import type { TabProps, TabsProps } from '@minimalist-ui/core/components/tabs/types';
 import { Tab } from '@minimalist-ui/core/components/tabs/Tab';
 import { names, useGenerateClasses, useMergedRefs } from '@minimalist-ui/core/utils';
@@ -18,7 +18,6 @@ const StyledTabs = styled<'div', TabsProps>('div')({
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, forwardRef) => {
     const { children, className, tabs, activeTab, onTabChange, ...rest } = props;
     const [activeValue, setActiveValue] = useState(activeTab);
-    const itemRefs = useRef<HTMLButtonElement[]>([]);
 
     const handleTabClick = (clickEvent: any) => {
         setActiveValue(clickEvent.target.value);
@@ -26,7 +25,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, forwardRef) =>
     };
 
     const tabList = children
-        ? Children.map(children, (child, index) => {
+        ? Children.map(children, (child) => {
               if (!isValidElement(child)) return child;
               if (child.type !== Tab) {
                   throw Error('Tabs only support Tab as a children');
@@ -35,9 +34,6 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, forwardRef) =>
               const { children, label, value, disabled } = child.props as TabProps;
               return (
                   <Tab
-                      ref={(element: HTMLButtonElement | null) => {
-                          itemRefs.current[index] = element!;
-                      }}
                       key={value}
                       label={label}
                       value={value}
@@ -49,12 +45,9 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, forwardRef) =>
                   </Tab>
               );
           })
-        : tabs?.map((tab, index) => {
+        : tabs?.map((tab) => {
               return (
                   <Tab
-                      ref={(element: HTMLButtonElement | null) => {
-                          itemRefs.current[index] = element!;
-                      }}
                       key={tab.value}
                       label={tab.label}
                       value={tab.value}
@@ -69,7 +62,6 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, forwardRef) =>
         <RovingFocus>
             <TabList
                 ref={forwardRef}
-                itemRefs={itemRefs}
                 tabList={
                     tabList as (string | number | bigint | JSX.Element | Iterable<React.ReactNode>)[] | null | undefined
                 }
@@ -82,13 +74,12 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, forwardRef) =>
 const TabList = forwardRef<
     HTMLDivElement,
     {
-        itemRefs: React.RefObject<HTMLButtonElement[]>;
         tabList: (string | number | bigint | JSX.Element | Iterable<React.ReactNode>)[] | null | undefined;
     } & TabsProps
 >((props, forwardRef) => {
-    const { itemRefs, tabList, className, ...rest } = props;
+    const { tabList, className, ...rest } = props;
 
-    const { focusItem, registerItem } = useRovingContext();
+    const { focusItem } = useRovingContext();
     const divRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergedRefs(forwardRef, divRef);
     const [focusedIndex, setFocusedIndex] = useState(-1);
@@ -106,12 +97,6 @@ const TabList = forwardRef<
         setFocusedIndex(newIndex);
         focusItem(newIndex);
     };
-
-    useEffect(() => {
-        itemRefs.current.forEach((element, index) => {
-            if (element) registerItem(index, { current: element });
-        });
-    }, [registerItem, tabList?.length]);
 
     return (
         <KeyBoardNavigation onArrowLeft={() => handleKeyDown('prev')} onArrowRight={() => handleKeyDown('next')}>
