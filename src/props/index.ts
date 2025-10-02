@@ -11,4 +11,7 @@ export * from "./ListItem.props";
 export * from "./Ripple.props";
 export * from "./Select.props";
 export * from "./SelectItem.props";
+export * from "./Tab.props";
+export * from "./Tabs.props";
+export * from "./Tabs.props";
 export * from "./Tooltip.props";
