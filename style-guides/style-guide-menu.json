@@ -1,0 +1,29 @@
+{
+    "accessibility": {
+        "aria-expanded": "true when open",
+        "aria-haspopup": "listbox",
+        "role": "menu"
+    },
+    "elements": {
+        "item": {
+            "active": { "bg": "{colors.states.primary.subtle}", "text": "{colors.states.primary.default}" },
+            "default": {
+                "padding": [8, 12],
+                "radius": "{radius.sm}",
+                "text": "{colors.modes.light.text.primary}"
+            },
+            "disabled": { "text": "{colors.modes.light.text.disabled}" },
+            "hover": { "bg": "{colors.modes.light.background.subtle}" }
+        },
+        "separator": { "bg": "{colors.modes.light.border.light}", "height": 1, "margin": [4, 0] }
+    },
+    "sizes": {
+        "md": { "padding": 12, "radius": "{radius.md}", "shadow": "{shadow.level3}" },
+        "sm": { "padding": 8, "radius": "{radius.md}", "shadow": "{shadow.level2}" }
+    },
+    "states": {
+        "close": { "opacity": 0 },
+        "default": { "bg": "{colors.modes.light.background.surface}" },
+        "open": { "shadow": "{shadow.level4}" }
+    }
+}
